@@ -1,5 +1,5 @@
 package model;
 
 public enum DoctorType {
-	kardiologs,gimenes_arsts,kirurgs
+	kardiologs,gimenes_arsts,kirurgs,cits
 }

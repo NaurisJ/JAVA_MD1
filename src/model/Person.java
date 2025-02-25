@@ -3,18 +3,15 @@ package model;
 public class Person {
 	
 	// Mainigie
-	private long pID;
 	private String name;
 	private String surname;
 	private String personCode;
 	
-	private static long counter = 0;
+
 	
 	
 	// getter
-	public long getpID() {
-		return pID;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -27,9 +24,6 @@ public class Person {
 	
 	// setter
 	
-	public void setpID() {
-		pID = counter++;
-	}
 	
 	public void setName(String inputName) {
 		if (inputName != null
@@ -61,7 +55,7 @@ public class Person {
 	// bez argumenta konstruktors
 	
 	public Person() {
-		setpID();
+
 		setName("Janis");
 		setSurname("Berzins");
 		setPersonCode("120302-12345");
@@ -70,7 +64,7 @@ public class Person {
 	// argumentu konstruktors
 	
 	public Person(String inputName, String inputSurname, String inputPersonCode) {
-		setpID();
+
 		setName(inputName);
 		setSurname(inputSurname);
 		setPersonCode(inputPersonCode);
@@ -81,7 +75,7 @@ public class Person {
 	
 	@Override
 	public String toString() {
-		return "ID:" + pID + " | Pacients: " + name + " " + surname + " | Personas kods: " + personCode;
+		return " | Pacients: " + name + " " + surname + " | Personas kods: " + personCode;
 	}
 	
 	
