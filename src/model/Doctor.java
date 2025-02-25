@@ -1,13 +1,12 @@
 package model;
 
-import model.Person;
 
 public class Doctor {
 	private long dID;
 	private long certificateNumber;
 	private int experienceInYears;
-	DoctorType doctortype;
-	Person person;
+	private DoctorType doctortype;
+	private Person person;
 	
 	private long counter = 0;
 	
