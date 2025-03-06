@@ -58,7 +58,7 @@ public class Person {
 
 		setName("Janis");
 		setSurname("Berzins");
-		setPersonCode("120302-12345");
+		setPersonCode("123456-12345");
 	}
 	
 	// argumentu konstruktors
@@ -75,7 +75,7 @@ public class Person {
 	
 	@Override
 	public String toString() {
-		return " | Pacients: " + name + " " + surname + " | Personas kods: " + personCode;
+		return " | PERSON: " + name + " " + surname + " | PERSON CODE: " + personCode;
 	}
 	
 	
