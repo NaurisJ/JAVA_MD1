@@ -81,9 +81,11 @@ public class Medicine {
 			manufacturer = "UNKNOWN";
 		}
 	}
-	public void setExpiryDate(LocalDate inputDate) {
+	public void setExpiryDate(LocalDate inputDate) throws Exception {
 		if (inputDate != null) {
 			expiryDate = inputDate;
+		} else {
+			throw new Exception("Invalid input date!");
 		}
 	}
 	

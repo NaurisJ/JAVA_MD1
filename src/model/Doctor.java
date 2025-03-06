@@ -1,7 +1,7 @@
 package model;
 
 
-public class Doctor {
+public class Doctor extends Person{
 	private long dID;
 	private long certificateNumber;
 	private int experienceInYears;
