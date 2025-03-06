@@ -28,7 +28,7 @@ public class Person {
 	public void setName(String inputName) {
 		if (inputName != null
 				&& inputName.matches("[A-Z]{1}[a-z]{3,10}([ ][A-Z]{1}[a-z]{3,10})?")) {
-			inputName = name;
+			name = inputName;
 		} else {
 			name = "unknown";
 		}
@@ -46,7 +46,7 @@ public class Person {
 	
 	public void setPersonCode(String inputPersonCode) {
 		if (inputPersonCode.length() == 12) {
-			inputPersonCode = personCode;
+			personCode = inputPersonCode;
 		} else {
 			personCode = "000000-00000";
 		}

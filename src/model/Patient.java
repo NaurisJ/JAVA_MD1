@@ -10,7 +10,7 @@ public class Patient extends Person{
 	private ArrayList<PatientDiseaseHistory> history = new ArrayList<PatientDiseaseHistory>();
 	private String patientCode;
 	
-	private long counter = 0;
+	private static long counter = 0;
 
 
 	
@@ -33,9 +33,7 @@ public class Patient extends Person{
 		return patientCode;
 	}
 
-	public long getCounter() {
-		return counter;
-	}
+
 	
 	// setter
 	

@@ -15,7 +15,7 @@ public class Medicine {
 	
 	
 	
-	private long counter = 0;
+	private static long counter = 0;
 
 	
 	// getter

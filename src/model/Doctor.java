@@ -3,30 +3,28 @@ package model;
 
 public class Doctor extends Person{
 	private long dID;
-	private long certificateNumber;
-	private int experienceInYears;
+	private String certificateNumber;
+	private float experienceInYears;
 	private DoctorType doctortype;
-	private Person person;
+
 	
-	private long counter = 0;
+	private static long counter = 0;
 	
 	
 	// getter
 	public long getdID() {
 		return dID;
 	}
-	public long getCertificateNumber() {
+	public String getCertificateNumber() {
 		return certificateNumber;
 	}
-	public int getExperienceInYears() {
+	public float getExperienceInYears() {
 		return experienceInYears;
 	}
 	public DoctorType getDoctortype() {
 		return doctortype;
 	}
-	public Person person() {
-		return person;
-	}
+
 	
 	// setter
 	
@@ -35,11 +33,16 @@ public class Doctor extends Person{
 		dID = counter++;
 	}
 	
-	public void setCertificateNumber(long inputCertificateNumber) {
-		// TODO - noskaidrot kas ieklaujas certificate number
+	public void setCertificateNumber(String inputCertificateNumber) {
+		if (inputCertificateNumber != null
+				&& inputCertificateNumber.matches("[A-Za-z1-9]{3,20}")) {
+			certificateNumber = inputCertificateNumber;
+		} else {
+			certificateNumber = "unknown";
+		}
 	}
 	
-	public void setExperienceInYears(int inputExperienceInYears) {
+	public void setExperienceInYears(float inputExperienceInYears) {
 		if (inputExperienceInYears < 50 && inputExperienceInYears > 0) {
 			experienceInYears = inputExperienceInYears;
 		} else {
@@ -55,33 +58,29 @@ public class Doctor extends Person{
 		}
 	}
 	
-	public void setPerson(Person inputPerson) {
-		if (inputPerson != null) {
-			person = inputPerson;
-		} else {
-			person = new Person();
-		}
-	}
+
 	
 	
 	// bez argumenta konstruktors
 	
 	public Doctor() {
+		super();
 		setdID();
-		setCertificateNumber(123);
+		setCertificateNumber("AF17375");
 		setExperienceInYears(5);
 		setDoctorType(DoctorType.kirurgs);
-		setPerson(new Person());	
+	
 	}
 	
 	// argumenta konstruktors
 	
-	public Doctor(long inputCertificateNumber, int inputExperienceInYears, DoctorType inputDoctorType, Person inputPerson) {
+	public Doctor(String name, String surname, String personCode, String inputCertificateNumber, float inputExperienceInYears, DoctorType inputDoctorType) {
+		super(name,surname,personCode);
 		setdID();
 		setCertificateNumber(inputCertificateNumber);
 		setExperienceInYears(inputExperienceInYears);
 		setDoctorType(inputDoctorType);
-		setPerson(inputPerson);
+
 	}
 	
 	// toString funkcija
@@ -89,7 +88,7 @@ public class Doctor extends Person{
 	@Override
 	
 	public String toString() {
-		return "ID: " + dID + " | " + person.getName().charAt(0) + " " + person.getSurname() + " | Type -  " + doctortype + " | Expereince - "
+		return "ID: " + dID + " | " + super.getName().charAt(0) + " " + super.getSurname() + " | Person Code -  " + super.getPersonCode() + "| Type -  " + doctortype + " | Expereince - "
 				+ experienceInYears + " years" + " | Certification number - " + certificateNumber;
 	}
 }
