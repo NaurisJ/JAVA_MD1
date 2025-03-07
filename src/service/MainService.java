@@ -88,6 +88,7 @@ public class MainService {
 			    System.out.println(types[i] + ": " + doctorStats[i]);
 			}
 			
+
 			
 			System.out.println("RETRIEVE DOCTOR APPOINTMENTS TODAY");
 			System.out.println(retrieveAllMedicalAppointmentForDoctorTodayByPersonCode("123456-12345"));
@@ -317,6 +318,27 @@ public class MainService {
 	    }
 	    
 	    return result;
+	}
+	
+	public static void sortDoctorsByExperienceByType(DoctorType doctorType) {
+
+		    int n = allDoctors.size();
+		    for (Doctor tempDT : allDoctors) {
+		    	if (tempDT.getDoctortype().equals(doctorType)) {
+				    for (int i = 0; i < n - 1; i++) {
+				        for (int j = 0; j < n - i - 1; j++) {
+				            if (allDoctors.get(j).getExperienceInYears() < allDoctors.get(j + 1).getExperienceInYears()) {
+				                // Swap doctors
+				                Doctor temp = allDoctors.get(j);
+				                allDoctors.set(j, allDoctors.get(j + 1));
+				                allDoctors.set(j + 1, temp);
+				            }
+				        }
+				    }
+		    }
+		    }
+		
+
 	}
 	
 
