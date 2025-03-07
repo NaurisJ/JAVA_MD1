@@ -61,7 +61,7 @@ public class MedicalAppointment {
 	}
 	
 	public void setDateTime(LocalDateTime inputDateTime){
-		if (inputDateTime.isAfter(LocalDateTime.now())) {
+		if (inputDateTime.isAfter(LocalDateTime.now()) || inputDateTime.equals(LocalDateTime.now())) {
 			datetime = inputDateTime;
 		} else {
 			throw new IllegalArgumentException("Appointment cannot be set in the past.");
@@ -70,7 +70,7 @@ public class MedicalAppointment {
 	
 	public void setCabinet(String inputCabinet) {
 		if (inputCabinet != null
-				&& inputCabinet.matches("[A-Za-z1-9]{1,6}")) {
+				&& inputCabinet.matches("[A-Za-z1-90]{1,6}")) {
 			cabinet = inputCabinet;
 		} else {
 			cabinet = "unknown";

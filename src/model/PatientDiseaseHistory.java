@@ -17,6 +17,8 @@ public class PatientDiseaseHistory {
 	private String notes;
 	private int severity;
 	
+	private Patient patient;
+	
 	private ArrayList<Medicine> prescribedMedicines = new ArrayList<Medicine>();
 
 	private static long counter = 0;
@@ -48,10 +50,22 @@ public class PatientDiseaseHistory {
 		return prescribedMedicines;
 	}
 	
+	public Patient getPatient() {
+		return patient;
+	}
+	
 	// setter
 	
 	public void sethID() {
 		hID = counter++;
+	}
+	
+	public void setPatient(Patient patient) {
+		if (patient != null) {
+			this.patient = patient;
+		} else {
+			this.patient = new Patient();
+		}
 	}
 	
 	public void setDiseaseStartingDate(LocalDate inputDiseaseStartingDate) {
@@ -120,12 +134,13 @@ public class PatientDiseaseHistory {
 		setNotes("");
 		setSeverity(0);
 		setPrescribedMedicines(new ArrayList<Medicine>());
+		setPatient(new Patient());
 	}
 	
 	// arg konstruktors
 	
 	public PatientDiseaseHistory(LocalDate inputDate, boolean inputIsPresent, Disease inputDisease,
-			Doctor inputDoctor, String inputNotes, int inputSeverity, ArrayList<Medicine> inputPrescribedMedicine) {
+			Doctor inputDoctor, String inputNotes, int inputSeverity, ArrayList<Medicine> inputPrescribedMedicine, Patient patient) {
 		sethID();
 		setDiseaseStartingDate(inputDate);
 		setIsPresent(inputIsPresent);
@@ -134,6 +149,7 @@ public class PatientDiseaseHistory {
 		setNotes(inputNotes);
 		setSeverity(inputSeverity);
 		setPrescribedMedicines(inputPrescribedMedicine);
+		setPatient(patient);
 		
 	}
 	
